@@ -65,6 +65,66 @@ public class DataValidator {
         Matcher matcher = pattern.matcher(Email);
         return matcher.matches();
     }
+    public static boolean isValidBlodtryk(String Blodtryk) {
+        Boolean result = false;
+        //Check the length
+        if (Blodtryk.length()==6) {
+            result = true;
+        } else {
+            return false;
+        }
+        //Check the format (two numbers)
+        //First split
+        String systolisk = Blodtryk.substring(0,3);
+        Character slash = Blodtryk.charAt(3);
+        String diastolisk = Blodtryk.substring(4,6);
+        try {//test if the first part is a number }
+            int d = Integer.parseInt(systolisk);
+        } catch (NumberFormatException nfe) {
+            System.out.println("First part is not a number");
+            return false;
+        }
+        if (! slash.equals('/')) {
+            System.out.println("Missing slash");
+            return false; };
+        try {//test if the last part is a number }
+            int running = Integer.parseInt(diastolisk);
+        } catch (NumberFormatException nfe){
+            System.out.println("Last part is a number");
+            return false;
+        }
+        return result;
+    }
+    public static boolean isValidHartBeat(String HartBeat) {
+        Boolean result = false;//Check the length
+        if (HartBeat.length() == 2) {
+            result = true;
+        } else {
+            return false;
+        }
+        try {//test if the first part is a number }
+            int d = Integer.parseInt(HartBeat);
+        } catch (NumberFormatException nfe) {
+            System.out.println(" HartBeat is not a number");
+            return false;
+        }
+        return result;
+    }
+    public static boolean isValidTemperatur(String Temperatur) {
+        Boolean result = false;//Check the length
+        if (Temperatur.length() == 2) {
+            result = true;
+        } else {
+            return false;
+        }
+        try {//test if the first part is a number }
+            int d = Integer.parseInt(Temperatur);
+        } catch (NumberFormatException nfe) {
+            System.out.println(" Temperatur is not a number");
+            return false;
+        }
+        return result;
+    }
 }
 
 

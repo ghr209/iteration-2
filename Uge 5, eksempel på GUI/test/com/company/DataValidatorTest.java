@@ -139,4 +139,79 @@ class DataValidatorTest {
         System.out.println("Test3");
         assertEquals(true,actualResult, "Ok...");
     }
+
+    @Test
+    void isValidTemperaturTest1() {
+        DataValidator dataValidator = new DataValidator();
+        String Temperatur = "HH";
+        Boolean actualResult = dataValidator.isValidTemperatur(Temperatur);
+        System.out.println("Test1");
+        assertEquals(false,actualResult, "Temperatur is does nor contain letters");
+    }
+    @Test
+    void isValidTemperaturTest2() {
+        DataValidator dataValidator = new DataValidator();
+        String Temperatur = "455";
+        Boolean actualResult = dataValidator.isValidTemperatur(Temperatur);
+        System.out.println("Test2");
+        assertEquals(false,actualResult, "Temperatur is too long");
+    }
+    @Test
+    void isValidTemperaturTest3() {
+        DataValidator dataValidator = new DataValidator();
+        String Temperatur = "38";
+        Boolean actualResult = dataValidator.isValidTemperatur(Temperatur);
+        System.out.println("Test3");
+        assertEquals(true,actualResult, "Ok...");
+    }
+
+    @Test
+    void isValidBlodtrykTest1() {
+        DataValidator dataValidator = new DataValidator();
+        String Blodtryk = "ab/60";
+        Boolean actualResult = dataValidator.isValidBlodtryk(Blodtryk);
+        System.out.println("Test1");
+        assertEquals(false,actualResult, "Blodtryk does nok contain letters");
+    }
+    @Test
+    void isValidBlodtrykTest2() {
+        DataValidator dataValidator = new DataValidator();
+        String Blodtryk = "12060";
+        Boolean actualResult = dataValidator.isValidBlodtryk(Blodtryk);
+        System.out.println("Test2");
+        assertEquals(false,actualResult, "Missing slash");
+    }
+    @Test
+    void isValidBlodtrykTest3() {
+        DataValidator dataValidator = new DataValidator();
+        String Blodtryk = "120/60";
+        Boolean actualResult = dataValidator.isValidBlodtryk(Blodtryk);
+        System.out.println("Test3");
+        assertEquals(true,actualResult, "Ok.....");
+    }
+
+    @Test
+    void isValidHartBeatTest1() {
+        DataValidator dataValidator = new DataValidator();
+        String HartBeat = "hm";
+        Boolean actualResult = dataValidator.isValidHartBeat(HartBeat);
+        System.out.println("Test1");
+        assertEquals(false,actualResult, "HartBeat is a number");
+    }
+    @Test
+    void isValidHartBeatTest2() {
+        DataValidator dataValidator = new DataValidator();
+        String HartBeat = "7875";
+        Boolean actualResult = dataValidator.isValidHartBeat(HartBeat);
+        System.out.println("Test2");
+        assertEquals(false,actualResult, "HartBeat is too long");
+    }
+    @Test
+    void isValidHartBeatTest3() {
+        DataValidator dataValidator = new DataValidator();
+        String HartBeat = "67";
+        Boolean actualResult = dataValidator.isValidHartBeat(HartBeat);
+        System.out.println("Test1");
+        assertEquals(true,actualResult, "Ok....");
+    }
 }
